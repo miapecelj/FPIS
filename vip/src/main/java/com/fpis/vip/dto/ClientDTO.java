@@ -1,5 +1,6 @@
 package com.fpis.vip.dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
@@ -8,14 +9,18 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClientDTO {
+public class ClientDTO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8612080539658481813L;
 	private Long id;
 	private String name;
 	private String PIB;
 	private String phoneNumber;
 	private String webPage;
 	private LocalDate yearOfEstablishment;
-	private AcitvityDTO acitvity;
+	private ActivityDTO acitvity;
 	private AddressDTO address;
 	private PotentialClientDTO potentialClient;
 }

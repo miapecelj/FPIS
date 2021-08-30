@@ -1,9 +1,6 @@
 package com.fpis.vip.entity;
 
-import java.time.LocalDate;
-
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,26 +16,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "potential_client")
-public class PotentialClientEntity {
+@Data
+@Table(name = "request_item")
+public class RequestItemEnitity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private LocalDate date;
-	private String name;
-	@Column(name = "phone_number")
-	private String phoneNumber;
-	private String email;
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "employee_send_id", referencedColumnName = "id")
+	private int orderNumber;
+	private String description;
+	@ManyToOne(cascade = CascadeType.MERGE,optional = false)
+	@JoinColumn(name = "request_id", referencedColumnName = "id", nullable = false)
 	@RestResource(exported = false)
-	private EmployeeEntity employeeSend;
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "employee_receive_id", referencedColumnName = "id")
-	@RestResource(exported = false)
-	private EmployeeEntity employeeReceive;
+	private TechnicalSupportRequestEntity request;
 
 }
