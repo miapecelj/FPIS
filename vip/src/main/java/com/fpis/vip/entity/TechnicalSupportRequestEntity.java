@@ -38,7 +38,8 @@ public class TechnicalSupportRequestEntity {
 	@JoinColumn(name = "employee_id", referencedColumnName = "id")
 	@RestResource(exported = false)
 	private EmployeeEntity employee;
-	@OneToMany(mappedBy = "request", cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@RestResource(exported = false)
 	private List<RequestItemEnitity> requestItems;
 
 }

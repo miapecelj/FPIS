@@ -17,6 +17,6 @@ public class RequestItemDTO implements Serializable{
 	private Long id;
 	private int orderNumber;
 	private String description;
-	private SimpleTechnicalSupportRequestDTO request;
+//	private SimpleTechnicalSupportRequestDTO request;
 
 }

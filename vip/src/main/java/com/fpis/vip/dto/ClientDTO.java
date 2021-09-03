@@ -20,7 +20,7 @@ public class ClientDTO implements Serializable{
 	private String phoneNumber;
 	private String webPage;
 	private LocalDate yearOfEstablishment;
-	private ActivityDTO acitvity;
+	private ActivityDTO activity;
 	private AddressDTO address;
 	private PotentialClientDTO potentialClient;
 }

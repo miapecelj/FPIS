@@ -6,8 +6,9 @@ import org.mapstruct.Mapper;
 import com.fpis.vip.dto.ClientDTO;
 import com.fpis.vip.entity.ClientEntity;
 
-@Mapper(componentModel = "spring", uses = {ActivityEntityDtoMapper.class, PotentialClientEntityDtoMapper.class,
-		AddressEntityDtoMapper.class},
+
+@Mapper(componentModel = "spring", uses = {AddressEntityDtoMapper.class, PotentialClientEntityDtoMapper.class,
+		ActivityEntityDtoMapper.class},
 injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface ClientEntityDtoMapper {
 	
