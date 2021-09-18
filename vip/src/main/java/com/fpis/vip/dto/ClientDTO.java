@@ -11,9 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClientDTO implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -8612080539658481813L;
 	private Long id;
 	private String name;

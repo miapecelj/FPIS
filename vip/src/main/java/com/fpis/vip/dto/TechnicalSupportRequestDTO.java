@@ -13,9 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class TechnicalSupportRequestDTO implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -5547782779181377296L;
 	private Long id;
 	private Date date;
