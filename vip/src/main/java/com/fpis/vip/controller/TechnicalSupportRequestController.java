@@ -12,18 +12,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fpis.vip.dto.TechnicalSupportRequestDTO;
 import com.fpis.vip.service.TechnicalRequestService;
 
 @RestController
+@RequestMapping("/request")
 public class TechnicalSupportRequestController {
 
 	@Autowired
 	TechnicalRequestService requestService;
 
-	@GetMapping("requests/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> getById(@PathVariable Long id) {
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(requestService.getById(id));
@@ -32,7 +34,7 @@ public class TechnicalSupportRequestController {
 		}
 	}
 
-	@GetMapping("requests")
+	@GetMapping
 	public ResponseEntity<?> getAll() {
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(requestService.getAll());
@@ -41,7 +43,7 @@ public class TechnicalSupportRequestController {
 		}
 	}
 
-	@GetMapping("requests/{dateString}")
+	@GetMapping("/find/{dateString}")
 	public ResponseEntity<?> findByName(@PathVariable String dateString) {
 		try {
 			System.out.println(dateString);
@@ -54,7 +56,7 @@ public class TechnicalSupportRequestController {
 		}
 	}
 
-	@PostMapping("/requests")
+	@PostMapping
 	public ResponseEntity<?> create(@RequestBody TechnicalSupportRequestDTO request) {
 		try {
 			requestService.save(request);
@@ -64,7 +66,7 @@ public class TechnicalSupportRequestController {
 		}
 	}
 
-	@PutMapping("/requests/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<?> update(@RequestBody TechnicalSupportRequestDTO request, @PathVariable Long id) {
 		try {
 			requestService.update(request, id);
