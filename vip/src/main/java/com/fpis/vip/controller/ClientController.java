@@ -24,15 +24,15 @@ import com.fpis.vip.repository.ClientRepository;
 @RequestMapping("/client")
 public class ClientController {
 	@Autowired
-	ClientRepository clientRepository;
+	private ClientRepository clientRepository;
 	@Autowired
-	ClientEntityDtoMapper clientMapper;
+	private ClientEntityDtoMapper clientMapper;
 	@Autowired
-	AddressRepository addressRepository;
+	private AddressRepository addressRepository;
 	@Autowired
-	CityRepostiory cityRepository;
+	private CityRepostiory cityRepository;
 	@Autowired
-	AddressEntityDtoMapper addressMapper;
+	private AddressEntityDtoMapper addressMapper;
 
 	@GetMapping("/{name}")
 	public ResponseEntity<?> findByName(@PathVariable String name) {

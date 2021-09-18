@@ -17,11 +17,11 @@ import com.fpis.vip.repository.RequestItemRepository;
 @Transactional
 public class TechnicalSupportRequestEntityDtoMapper {
 	@Autowired
-	EmployeeEntityDtoMapper employeeMapper;
+	private EmployeeEntityDtoMapper employeeMapper;
 	@Autowired
-	RequestItemRepository requestItemRepository;
+	private RequestItemRepository requestItemRepository;
 	@Autowired
-	RequestItemEntityDtoMapper requestItemMapper;
+	private RequestItemEntityDtoMapper requestItemMapper;
 
 	public TechnicalSupportRequestEntity toEntity(TechnicalSupportRequestDTO request) {
 		TechnicalSupportRequestEntity requestEntity = new TechnicalSupportRequestEntity();

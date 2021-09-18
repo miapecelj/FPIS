@@ -23,7 +23,7 @@ import com.fpis.vip.service.TechnicalRequestService;
 public class TechnicalSupportRequestController {
 
 	@Autowired
-	TechnicalRequestService requestService;
+	private TechnicalRequestService requestService;
 
 	@GetMapping("/{id}")
 	public ResponseEntity<?> getById(@PathVariable Long id) {
@@ -44,7 +44,7 @@ public class TechnicalSupportRequestController {
 	}
 
 	@GetMapping("/find/{dateString}")
-	public ResponseEntity<?> findByName(@PathVariable String dateString) {
+	public ResponseEntity<?> findByDate(@PathVariable String dateString) {
 		try {
 			System.out.println(dateString);
 			SimpleDateFormat sdfDateDMY = new SimpleDateFormat("dd-MM-yyyy");

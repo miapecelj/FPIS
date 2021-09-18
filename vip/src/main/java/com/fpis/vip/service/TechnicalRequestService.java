@@ -21,11 +21,11 @@ import com.fpis.vip.repository.TechnicalSupportRequestRepository;
 @Transactional
 public class TechnicalRequestService {
 	@Autowired
-	TechnicalSupportRequestRepository requestRepository;
+	private TechnicalSupportRequestRepository requestRepository;
 	@Autowired
-	TechnicalSupportRequestEntityDtoMapper requestMapper;
+	private TechnicalSupportRequestEntityDtoMapper requestMapper;
 	@Autowired
-	RequestItemEntityDtoMapper requestItemMapper;
+	private RequestItemEntityDtoMapper requestItemMapper;
 
 	public List<TechnicalSupportRequestDTO> findByDate(Date date) {
 		List<TechnicalSupportRequestDTO> requests = requestRepository.findByDate(date).stream()
