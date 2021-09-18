@@ -3,8 +3,8 @@ package com.fpis.vip.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.fpis.vip.entity.AcitvityEntity;
+import com.fpis.vip.entity.ActivityEntity;
 @RepositoryRestResource(collectionResourceRel = "activity", path="activity")
-public interface ActivityRepository extends JpaRepository<AcitvityEntity, Long>{
+public interface ActivityRepository extends JpaRepository<ActivityEntity, Long>{
 
 }

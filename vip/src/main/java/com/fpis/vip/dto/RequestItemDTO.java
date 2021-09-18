@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class RequestItemDTO implements Serializable{
+public class RequestItemDTO implements Serializable {
 	/**
 	 * 
 	 */
@@ -17,6 +17,5 @@ public class RequestItemDTO implements Serializable{
 	private Long id;
 	private int orderNumber;
 	private String description;
-//	private SimpleTechnicalSupportRequestDTO request;
 
 }

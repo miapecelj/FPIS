@@ -29,6 +29,7 @@ public class ClientEntity {
 	private Long id;
 	private String name;
 	private String PIB;
+	private String email;
 	@Column(name = "phone_number")
 	private String phoneNumber;
 	@Column(name = "web_page")
@@ -36,9 +37,9 @@ public class ClientEntity {
 	@Column(name = "year_of_establishment")
 	private LocalDate yearOfEstablishment;
 	@ManyToOne(cascade = { CascadeType.MERGE })
-	@JoinColumn(name = "activity_code", referencedColumnName = "code")
+	@JoinColumn(name = "activity", referencedColumnName = "code")
 	@RestResource(exported = false)
-	private AcitvityEntity activity;
+	private ActivityEntity activity;
 	@ManyToOne(cascade = { CascadeType.MERGE })
 	@JoinColumn(name = "address_id", referencedColumnName = "id")
 	@RestResource(exported = false)
