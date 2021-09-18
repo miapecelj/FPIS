@@ -1,7 +1,9 @@
 package com.fpis.vip.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +47,25 @@ public class TechnicalRequestService {
 
 		}
 		requestRepository.save(existingRequest);
+
+	}
+
+	public TechnicalSupportRequestDTO getById(Long id) throws Exception {
+		Optional<TechnicalSupportRequestEntity> entity = requestRepository.findById(id);
+		if (entity.isEmpty()) {
+			throw new Exception("No such request");
+		}
+		return requestMapper.toDto(entity.get());
+
+	}
+
+	public List<TechnicalSupportRequestDTO> getAll() throws Exception {
+		List<TechnicalSupportRequestEntity> entities = requestRepository.findAll();
+		List<TechnicalSupportRequestDTO> dtos = new ArrayList<>();
+		for (TechnicalSupportRequestEntity entity : entities) {
+			dtos.add(requestMapper.toDto(entity));
+		}
+		return dtos;
 
 	}
 

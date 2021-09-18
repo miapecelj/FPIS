@@ -23,6 +23,24 @@ public class TechnicalSupportRequestController {
 	@Autowired
 	TechnicalRequestService requestService;
 
+	@GetMapping("requests/{id}")
+	public ResponseEntity<?> getById(@PathVariable Long id) {
+		try {
+			return ResponseEntity.status(HttpStatus.OK).body(requestService.getById(id));
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+		}
+	}
+
+	@GetMapping("requests")
+	public ResponseEntity<?> getAll() {
+		try {
+			return ResponseEntity.status(HttpStatus.OK).body(requestService.getAll());
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+		}
+	}
+
 	@GetMapping("requests/{dateString}")
 	public ResponseEntity<?> findByName(@PathVariable String dateString) {
 		try {

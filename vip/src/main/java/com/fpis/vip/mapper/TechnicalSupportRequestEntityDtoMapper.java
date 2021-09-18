@@ -20,6 +20,8 @@ public class TechnicalSupportRequestEntityDtoMapper {
 	EmployeeEntityDtoMapper employeeMapper;
 	@Autowired
 	RequestItemRepository requestItemRepository;
+	@Autowired
+	RequestItemEntityDtoMapper requestItemMapper;
 
 	public TechnicalSupportRequestEntity toEntity(TechnicalSupportRequestDTO request) {
 		TechnicalSupportRequestEntity requestEntity = new TechnicalSupportRequestEntity();
@@ -50,6 +52,9 @@ public class TechnicalSupportRequestEntityDtoMapper {
 		requestDto.setDate(request.getDate());
 		requestDto.setId(request.getId());
 		requestDto.setEmployee(employeeMapper.toDto(request.getEmployee()));
+		for (RequestItemEnitity item : request.getRequestItems()) {
+			requestDto.getRequestItems().add(requestItemMapper.toDto(item));
+		}
 		return requestDto;
 	}
 }

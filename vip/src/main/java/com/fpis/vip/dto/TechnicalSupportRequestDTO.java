@@ -1,6 +1,7 @@
 package com.fpis.vip.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +21,6 @@ public class TechnicalSupportRequestDTO implements Serializable {
 	private Date date;
 	private boolean approved;
 	private EmployeeDTO employee;
-	private List<RequestItemDTO> requestItems;
+	private List<RequestItemDTO> requestItems = new ArrayList<>();
 
 }
