@@ -45,10 +45,10 @@ public class ClientController {
 		}
 	}
 
-	@GetMapping("/{postalCode}")
-	public ResponseEntity<?> findByCity(@PathVariable String postalCode) {
+	@GetMapping("/address/{postalCode}")
+	public ResponseEntity<?> findByCity(@PathVariable Long postalCode) {
 		try {
-			CityEntity city = cityRepository.getById(postalCode);
+			CityEntity city = cityRepository.findByPostalCode(postalCode).get(0);
 			List<AddressDTO> addresses = addressRepository.findByCity(city).stream()
 					.map(address -> addressMapper.toDto(address)).collect(Collectors.toList());
 			return ResponseEntity.status(HttpStatus.OK).body(addresses);

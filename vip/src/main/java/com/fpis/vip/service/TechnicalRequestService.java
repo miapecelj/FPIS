@@ -33,9 +33,10 @@ public class TechnicalRequestService {
 		return requests;
 	}
 
-	public void save(TechnicalSupportRequestDTO request) {
+	public Long save(TechnicalSupportRequestDTO request) {
 
-		requestRepository.save(requestMapper.toEntity(request));
+		TechnicalSupportRequestEntity requestEntity = requestRepository.save(requestMapper.toEntity(request));
+		return requestEntity.getId();
 
 	}
 

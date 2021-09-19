@@ -59,8 +59,8 @@ public class TechnicalSupportRequestController {
 	@PostMapping
 	public ResponseEntity<?> create(@RequestBody TechnicalSupportRequestDTO request) {
 		try {
-			requestService.save(request);
-			return ResponseEntity.status(HttpStatus.OK).body("Succesfuly saved");
+			Long id = requestService.save(request);
+			return ResponseEntity.status(HttpStatus.OK).body(id);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 		}
