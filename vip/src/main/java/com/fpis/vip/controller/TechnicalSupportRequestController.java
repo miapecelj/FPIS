@@ -46,7 +46,7 @@ public class TechnicalSupportRequestController {
 	@GetMapping("/find/{dateString}")
 	public ResponseEntity<?> findByDate(@PathVariable String dateString) {
 		try {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy-HH:mm:ss");
 			LocalDate localDate = LocalDate.parse(dateString, formatter);
 			List<TechnicalSupportRequestDTO> requests = requestService.findByDate(localDate);
 			return ResponseEntity.status(HttpStatus.OK).body(requests);
