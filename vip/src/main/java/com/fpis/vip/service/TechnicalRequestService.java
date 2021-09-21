@@ -1,7 +1,8 @@
 package com.fpis.vip.service;
 
+import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,15 +28,15 @@ public class TechnicalRequestService {
 	@Autowired
 	private RequestItemEntityDtoMapper requestItemMapper;
 
-	public List<TechnicalSupportRequestDTO> findByDate(Date date) {
-		List<TechnicalSupportRequestDTO> requests = requestRepository.findByDate(date).stream()
+	public List<TechnicalSupportRequestDTO> findByDate(LocalDate localDate) {
+		List<TechnicalSupportRequestDTO> requests = requestRepository.findByDate(localDate).stream()
 				.map(request -> requestMapper.toDto(request)).collect(Collectors.toList());
 		return requests;
 	}
 
-	public Long save(TechnicalSupportRequestDTO request) {
-
-		TechnicalSupportRequestEntity requestEntity = requestRepository.save(requestMapper.toEntity(request));
+	public Long save(TechnicalSupportRequestDTO request) throws ParseException {
+		TechnicalSupportRequestEntity entity = requestMapper.toEntity(request);
+		TechnicalSupportRequestEntity requestEntity = requestRepository.save(entity);
 		return requestEntity.getId();
 
 	}

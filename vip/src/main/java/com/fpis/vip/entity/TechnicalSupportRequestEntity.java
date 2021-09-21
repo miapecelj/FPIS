@@ -1,7 +1,7 @@
 package com.fpis.vip.entity;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,7 +29,7 @@ public class TechnicalSupportRequestEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Date date;
+	private LocalDate date;
 	private boolean approved;
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "employee_id", referencedColumnName = "id")

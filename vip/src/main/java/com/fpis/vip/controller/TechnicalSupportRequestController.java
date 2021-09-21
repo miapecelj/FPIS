@@ -1,7 +1,7 @@
 package com.fpis.vip.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,10 +46,9 @@ public class TechnicalSupportRequestController {
 	@GetMapping("/find/{dateString}")
 	public ResponseEntity<?> findByDate(@PathVariable String dateString) {
 		try {
-			System.out.println(dateString);
-			SimpleDateFormat sdfDateDMY = new SimpleDateFormat("dd-MM-yyyy");
-			Date date = sdfDateDMY.parse(dateString);
-			List<TechnicalSupportRequestDTO> requests = requestService.findByDate(date);
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			LocalDate localDate = LocalDate.parse(dateString, formatter);
+			List<TechnicalSupportRequestDTO> requests = requestService.findByDate(localDate);
 			return ResponseEntity.status(HttpStatus.OK).body(requests);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
